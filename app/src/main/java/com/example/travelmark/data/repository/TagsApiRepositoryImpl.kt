@@ -1,7 +1,7 @@
 package com.example.travelmark.data.repository
 
 import com.example.travelmark.core.Error
-import com.example.travelmark.data.data_source.TagsApi
+import com.example.travelmark.data.data_source.api.TagsApi
 import com.example.travelmark.data.dto.TagDTO
 import com.example.travelmark.data.dto.UserDTO
 import com.example.travelmark.domain.model.Tag

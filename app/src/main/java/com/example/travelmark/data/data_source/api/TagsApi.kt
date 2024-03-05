@@ -1,4 +1,4 @@
-package com.example.travelmark.data.data_source
+package com.example.travelmark.data.data_source.api
 
 import com.example.travelmark.data.dto.TagDTO
 import okhttp3.MultipartBody

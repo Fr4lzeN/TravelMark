@@ -1,7 +1,7 @@
 package com.example.travelmark.data.repository
 
 import com.example.travelmark.core.Error
-import com.example.travelmark.data.data_source.AuthApi
+import com.example.travelmark.data.data_source.api.AuthApi
 import com.example.travelmark.data.dto.SignInDTO
 import com.example.travelmark.data.dto.SignUpDTO
 import com.example.travelmark.domain.model.Token
