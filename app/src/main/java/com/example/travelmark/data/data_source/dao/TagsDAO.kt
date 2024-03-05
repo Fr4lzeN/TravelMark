@@ -11,18 +11,18 @@ import com.example.travelmark.domain.model.Tag
 interface TagsDAO {
 
     @Query("DELETE  FROM tag")
-    fun deleteTags()
+    suspend fun deleteTags()
 
     @Query("SELECT * FROM tag")
-    fun getTags():List<Tag>
+    suspend fun getTags():List<Tag>
 
     @Update
-    fun updateTag(tag: Tag)
+    suspend fun updateTag(tag: Tag)
 
     @Delete
-    fun deleteTag(tag: Tag)
+    suspend fun deleteTag(tag: Tag)
 
     @Insert
-    fun insertTag(tag: Tag)
+    suspend fun insertTag(tag: Tag)
 
 }

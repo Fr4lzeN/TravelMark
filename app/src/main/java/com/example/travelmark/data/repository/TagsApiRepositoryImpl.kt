@@ -48,7 +48,7 @@ class TagsApiRepositoryImpl(
             image?.readBytes()?.let { RequestBody.create(MediaType.parse("image/*"), it) }
         val imagePart = imageBody?.let { MultipartBody.Part.createFormData("image", ".jpg", it) }
         image?.close()
-        val response = tagsApi.createTag(latitude, longitude, description, imagePart, token)
+        val response = tagsApi.createTag(latitude, longitude, description, imagePart, "bearer $token")
         if (response.isSuccessful) {
             return Result.success(response.body()!!.toTag())
         }

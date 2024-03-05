@@ -11,14 +11,14 @@ import com.example.travelmark.domain.model.AuthData
 interface AuthDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAuthData(authData: AuthData)
+    suspend fun insertAuthData(authData: AuthData)
 
     @Query("SELECT * FROM authdata LIMIT 1")
-    fun getData():AuthData
+    suspend fun getData():AuthData
 
     @Update
-    fun updateAuthData(authData: AuthData)
+    suspend fun updateAuthData(authData: AuthData)
 
     @Query("DELETE FROM authdata")
-    fun deleteAuthData()
+    suspend fun deleteAuthData()
 }

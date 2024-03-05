@@ -8,23 +8,23 @@ class TagsDBRepositoryImpl(
     private val tagsDAO: TagsDAO,
 ) : TagsDBRepository {
 
-    override fun deleteTags() {
+    override suspend fun deleteTags() {
         tagsDAO.deleteTags()
     }
 
-    override fun getTags(): List<Tag> {
+    override suspend fun getTags(): List<Tag> {
         return tagsDAO.getTags()
     }
 
-    override fun updateTag(tag: Tag) {
+    override suspend fun updateTag(tag: Tag) {
         tagsDAO.updateTag(tag)
     }
 
-    override fun deleteTag(tag: Tag) {
+    override suspend fun deleteTag(tag: Tag) {
         tagsDAO.deleteTag(tag)
     }
 
-    override fun insertTag(tag: Tag) {
+    override suspend fun insertTag(tag: Tag) {
         tagsDAO.insertTag(tag)
     }
 

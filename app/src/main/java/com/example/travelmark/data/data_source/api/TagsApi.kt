@@ -20,8 +20,7 @@ interface TagsApi {
     }
 
     @GET("/api/tags/")
-    @Headers("accept: application/json")
-    fun getTags(
+    suspend fun getTags(
         @Query("image") image: String? = null,
         @Query("image_neq") imageNeq: String? = null,
         @Query("order_by") orderBy: String? = null,
@@ -31,39 +30,31 @@ interface TagsApi {
 
     @Multipart
     @POST("/api/tags/")
-    @Headers(
-        "accept: application/json",
-        "Content-Type: multipart/form-data")
-    fun createTag(
+    suspend fun createTag(
         @Part("latitude") latitude: Double,
         @Part("longitude") longitude: Double,
         @Part("description") description: String,
-        @Part("image") imageBinary: MultipartBody.Part? = null,
+        @Part image: MultipartBody.Part? = null,
         @Header("Authorization") token: String? = null
     ): Response<TagDTO>
 
     @DELETE("/api/tags/{tag_id}")
-    @Headers("accept: */*")
-    fun deleteTag(
+    suspend fun deleteTag(
         @Path("tag_id") tagId: String,
         @Header("Authorization") token: String? = null,
     ): Response<String>
 
     @POST("/api/tags/{tag_id}/likes")
-    @Headers("accept: application/json")
-    fun likeTag(
+    suspend fun likeTag(
         @Path("tag_id") tagId: String,
         @Header("Authorization") token: String? = null
     ): Response<TagDTO>
 
     @DELETE("/api/tags/{tag_id}/likes")
-    @Headers("accept: */*")
-    fun deleteLikeTag(
+    suspend fun deleteLikeTag(
         @Path("tag_id") tagId: String,
         @Header("Authorization") token: String? = null
     ): Response<String>
-
-
 
 
 }

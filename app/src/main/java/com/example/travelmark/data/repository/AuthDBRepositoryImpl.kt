@@ -9,28 +9,28 @@ class AuthDBRepositoryImpl(
     private val authDAO: AuthDAO
 ) : AuthDBRepository {
 
-    override fun insertAuthData(authData: AuthData) {
+    override suspend fun insertAuthData(authData: AuthData) {
         val password = authData.password
         val encryptedPassword = EncryptionHelper.encryptPassword(password)
         val encryptedAuth = authData.copy(password = encryptedPassword)
         authDAO.insertAuthData(encryptedAuth)
     }
 
-    override fun getData(): AuthData {
+    override suspend fun getData(): AuthData {
         val encryptedAuth = authDAO.getData()
         val encryptedPassword = encryptedAuth.password
         val password = EncryptionHelper.decryptPassword(encryptedPassword)
         return encryptedAuth.copy(password = password)
     }
 
-    override fun updateAuthData(authData: AuthData) {
+    override suspend fun updateAuthData(authData: AuthData) {
         val password = authData.password
         val encryptedPassword = EncryptionHelper.encryptPassword(password)
         val encryptedAuth = authData.copy(password = encryptedPassword)
         authDAO.insertAuthData(encryptedAuth)
     }
 
-    override fun deleteAuthData() {
+    override suspend fun deleteAuthData() {
         authDAO.deleteAuthData()
     }
 }

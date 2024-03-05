@@ -4,13 +4,13 @@ import com.example.travelmark.domain.model.AuthData
 
 interface AuthDBRepository {
 
-    fun insertAuthData(authData: AuthData)
+    suspend fun insertAuthData(authData: AuthData)
 
-    fun getData(): AuthData
-
-
-    fun updateAuthData(authData: AuthData)
+    suspend fun getData(): AuthData
 
 
-    fun deleteAuthData()
+    suspend fun updateAuthData(authData: AuthData)
+
+
+    suspend fun deleteAuthData()
 }

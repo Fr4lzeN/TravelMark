@@ -16,5 +16,9 @@ data class Tag(
     val isLiked: Boolean = false,
     @Embedded
     val user: User? = null
-)
+){
+    override fun toString(): String {
+        return "Tag(id='$id', latitude=$latitude, longitude=$longitude, description='$description', image=$image, likes=$likes, isLiked=$isLiked, user=$user)"
+    }
+}
 

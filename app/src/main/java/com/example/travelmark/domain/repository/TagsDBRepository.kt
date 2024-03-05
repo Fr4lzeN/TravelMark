@@ -4,18 +4,18 @@ import com.example.travelmark.domain.model.Tag
 
 interface TagsDBRepository {
 
-    fun deleteTags()
+    suspend fun deleteTags()
 
 
-    fun getTags():List<Tag>
+    suspend fun getTags(): List<Tag>
 
 
-    fun updateTag(tag: Tag)
+    suspend fun updateTag(tag: Tag)
 
 
-    fun deleteTag(tag: Tag)
+    suspend fun deleteTag(tag: Tag)
 
 
-    fun insertTag(tag: Tag)
+    suspend fun insertTag(tag: Tag)
 
 }
